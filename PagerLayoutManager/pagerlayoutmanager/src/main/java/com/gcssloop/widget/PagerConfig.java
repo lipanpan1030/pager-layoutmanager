@@ -31,7 +31,7 @@ import android.util.Log;
  */
 public class PagerConfig {
     private static final String TAG = "PagerGrid";
-    private static boolean sShowLog = false;
+    private static boolean sShowLog = true;
     private static int sFlingThreshold = 1000;          // Fling 阀值，滚动速度超过该阀值才会触发滚动
     private static float sMillisecondsPreInch = 60f;    // 每一个英寸滚动需要的微秒数，数值越大，速度越慢
 

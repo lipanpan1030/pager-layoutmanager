@@ -36,7 +36,6 @@ import android.view.ViewGroup;
 
 import static android.support.v7.widget.RecyclerView.SCROLL_STATE_IDLE;
 import static android.view.View.MeasureSpec.EXACTLY;
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static com.gcssloop.widget.PagerConfig.Loge;
 import static com.gcssloop.widget.PagerConfig.Logi;
 
@@ -67,7 +66,7 @@ public class PagerGridLayoutManager extends RecyclerView.LayoutManager
 
     private int mRows;                              // 行数
     private int mColumns;                           // 列数
-    private int mOnePageSize;                       // 一页的条目数量
+    private int mOnePageSize = 4;                       // 一页的条目数量
 
     private SparseArray<Rect> mItemFrames;          // 条目的显示区域
 
@@ -99,7 +98,7 @@ public class PagerGridLayoutManager extends RecyclerView.LayoutManager
         mOrientation = orientation;
         mRows = rows;
         mColumns = columns;
-        mOnePageSize = mRows * mColumns;
+        //mOnePageSize = mRows * mColumns;
     }
 
     @Override
@@ -235,13 +234,14 @@ public class PagerGridLayoutManager extends RecyclerView.LayoutManager
 
         int startPos = 0;                  // 获取第一个条目的Pos
         int pageIndex = getPageIndexByOffset();
-        startPos = pageIndex * mOnePageSize;
+        int onePageItem = (mOnePageSize + 1);
+        startPos = pageIndex * onePageItem;
         Logi("startPos = " + startPos);
-        startPos = startPos - mOnePageSize * 2;
+        startPos = startPos - onePageItem * 2;
         if (startPos < 0) {
             startPos = 0;
         }
-        int stopPos = startPos + mOnePageSize * 4;
+        int stopPos = startPos + onePageItem * 4;
         if (stopPos > getItemCount()) {
             stopPos = getItemCount();
         }

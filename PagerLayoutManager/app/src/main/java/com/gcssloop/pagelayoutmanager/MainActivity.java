@@ -32,6 +32,7 @@ import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.gcssloop.widget.GradientRecyclerView;
 import com.gcssloop.widget.PagerConfig;
 import com.gcssloop.widget.PagerGridLayoutManager;
 import com.gcssloop.widget.PagerGridSnapHelper;
@@ -42,9 +43,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements PagerGridLayoutManager
         .PageListener, RadioGroup.OnCheckedChangeListener {
 
-    private int mRows = 2;
-    private int mColumns = 3;
-    private RecyclerView mRecyclerView;
+    private int mRows = 1;
+    private int mColumns = 5;
+    private GradientRecyclerView mRecyclerView;
     private MyAdapter mAdapter;
     private PagerGridLayoutManager mLayoutManager;
     private RadioGroup mRadioGroup;
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements PagerGridLayoutMa
 
 
         // 系统带的 RecyclerView，无需自定义
-        mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        mRecyclerView = (GradientRecyclerView) findViewById(R.id.recycler_view);
 
         // 水平分页布局管理器
         mLayoutManager.setPageListener(this);    // 设置页面变化监听器
